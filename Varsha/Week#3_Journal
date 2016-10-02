@@ -1,0 +1,14 @@
+Week#3:
+
+•	This week we started working on developing on the idea selected.
+•	With required planning, we came together to finally decide on the implementation of the base version of the idea so that we can finalize the theme and idea.
+•	Initially, we had decided on the Kruskal’s algorithm for implementing minimal spanning tree but now we have opted for Prim’s algorithm based on everyone’s feedback for the game. (Note: Game can be made more interesting for the students with the finalized idea)
+•	We divided the work amongst the members. The team is divided into pairs for each task to decrease the feedback time for the task they are doing.
+•	Feedback is taken even for the smallest task done (like the images to be used) for the game so that rework is avoided.
+•	Also based on everyone’s experience from the lab assignments, Greenfoot was selected for designing the game.
+•	We as a team are taking efforts to ask other members’ opinion to finalize on things that are done so as to reduce the time to redo things.
+
+
+For the upcoming week:
+
+•	As we are going to start building small modules for the base version, I will suggest everyone to write test cases for the modules so even after they are integrated they can still be tested.
