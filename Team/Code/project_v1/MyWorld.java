@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+
 /**
  * Write a description of class MyWorld here.
  * 
@@ -13,16 +14,22 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    public MyWorld()
+    String name;
+    
+    public MyWorld(String name)
     {    
         // Create a new world with 800*600 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+                this.name = name;
         prepare();
     }
     
     
     public void prepare(){
-
+        System.out.println("From myworld"+name);
+        Text player = new Text(name);
+        addObject(player,10,10);
+        
         ScoreBoard scoreboard = new ScoreBoard();
         addObject(scoreboard,298,178);
         removeObject(scoreboard);
@@ -96,4 +103,5 @@ public class MyWorld extends World
         addObject(text7,447,315);
         edge7.setLocation(438,332);
     }
+   
 }

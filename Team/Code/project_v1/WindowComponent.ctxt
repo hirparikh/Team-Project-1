@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=WindowComponent
+comment0.text=\r\n\ WindowComponent\r\n\ <p>\r\n\ A\ component\ to\ be\ used\ within\ a\ Window.<p>\r\n\ Handles\ horizontal\ and\ vertical\ justification\ (beginning,\ center,\ and\ end)\ within\ a\ cell\ of\ a\ Container.\r\n\ \r\n\ @author\ Taylor\ Born\r\n\ @version\ February\ 2013\ -\ March\ 2014\r\n
+comment1.params=
+comment1.target=boolean\ hasChangedGUISize()
+comment1.text=\r\n\ Listener\ to\ be\ called\ by\ Container.\r\n\ @return\ Whether\ this\ WindowComponent's\ GUI\ width\ or\ height\ has\ changed\ since\ last\ call.\r\n
+comment2.params=leftSide\ xRange\ topSide\ yRange
+comment2.target=void\ setLocationInContainerCell(int,\ int,\ int,\ int)
+comment2.text=\r\n\ Called\ within\ Container\ to\ set\ this\ WindowComponent's\ location\ within\ World\ to\ be\ within\ a\ cell\ of\ grid/table\ structure.<p>\r\n\ @param\ leftSide\ The\ x-coordinate\ of\ the\ left\ side\ of\ the\ cell\ assigned\ to.\r\n\ @param\ xRange\ The\ width\ in\ pixels\ of\ the\ cell\ assigned\ to.\r\n\ @param\ topSide\ The\ y-coordinate\ of\ the\ top\ side\ of\ the\ cell\ assigned\ to.\r\n\ @param\ yRange\ The\ height\ in\ pixels\ of\ the\ cell\ assigned\ to.\r\n\ @see\ addToWorldInContainerCell(World,\ int,\ int,\ int,\ int)\r\n
+comment3.params=world\ leftSide\ xRange\ topSide\ yRange
+comment3.target=void\ addToWorldInContainerCell(greenfoot.World,\ int,\ int,\ int,\ int)
+comment3.text=\r\n\ Called\ within\ Container\ to\ add\ this\ WindowComponent\ to\ the\ World\ within\ a\ cell\ of\ grid/table\ structure.<p>\r\n\ @param\ leftSide\ The\ x-coordinate\ of\ the\ left\ side\ of\ the\ cell\ assigned\ to.\r\n\ @param\ xRange\ The\ width\ in\ pixels\ of\ the\ cell\ assigned\ to.\r\n\ @param\ topSide\ The\ y-coordinate\ of\ the\ top\ side\ of\ the\ cell\ assigned\ to.\r\n\ @param\ yRange\ The\ height\ in\ pixels\ of\ the\ cell\ assigned\ to.\r\n\ @see\ setLocationInContainerCell(World,\ int,\ int,\ int,\ int)\r\n
+comment4.params=range
+comment4.target=int\ getJustifyX(int)
+comment5.params=range
+comment5.target=int\ getJustifyY(int)
+comment6.params=j
+comment6.target=void\ justifyHorizontally(int)
+comment6.text=\r\n\ Justify\ this\ WindowComponent\ horizontally\ within\ its\ Container's\ column\ \r\n
+comment7.params=j
+comment7.target=void\ justifyVertically(int)
+comment7.text=\r\n\ Justify\ this\ WindowComponent\ vertically\ within\ its\ Container's\ row\ \r\n
+numComments=8
