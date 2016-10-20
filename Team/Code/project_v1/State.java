@@ -9,21 +9,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 
 public enum State {
-	NOT_SELECTED("Not Selected"), SELECTED("Selected"), SUGGESTED("Suggested");
+//    NOT_SELECTED("Not Selected"), SELECTED("Selected"), SUGGESTED("Suggested");
+    NOT_SELECTED, SELECTED, SUGGESTED;
 
-	String value;
-
-	
+    //String value;
     
-	private State(String value) {
-		this.value = value;
-	}
-
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return value;
-	}
+    private State() {
+    }
+    
+    /*@Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return value;
+    }*/
 }
 
 

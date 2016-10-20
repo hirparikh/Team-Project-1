@@ -9,9 +9,10 @@ import java.util.Set;
  */
 public class Node extends Actor
 {
-   private State state = State.SUGGESTED;
-	private int id;
-	private Set<Edge> edgeSet;
+    private State state = State.SUGGESTED;
+    private int id;
+    private Set<Edge> edgeSet;
+    private MST mst;
 
     
     /**
@@ -20,80 +21,90 @@ public class Node extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        if (Greenfoot.mouseClicked(this)) {
+           Greenfoot.playSound("sounds/node_click.mp3");
+           pickNode();  
+       }
     }    
     
-    public Node(int id) {
-		// TODO Auto-generated constructor stub
-		this.id = id;
-		edgeSet = new HashSet<>();
-	}
+    public Node(int id, MST mst) {
+        // TODO Auto-generated constructor stub
+        this.id = id;
+        this.mst = mst;
+        setImage(new GreenfootImage("images/bulb_orange.png"));
+        edgeSet = new HashSet<>();
+    }
 
-	public Edge addEdgeTo(int id, Node n, int weight) {
+    
+    
+    public void pickNode() {
+        if (mst.isFirstNode() && state.equals(State.SUGGESTED)) {
+            setState(State.SELECTED);
+            mst.setFirstNode(false);
+            for (Node n : mst.getNodeSet()) {
+                if (n != this) {
+                    n.setState(State.NOT_SELECTED);
+                }
+            }
+            for (Edge edge : edgeSet) {
+                switch (edge.getState()) {
+                case NOT_SELECTED:
+                    edge.setState(State.SUGGESTED);
+                    if (edge.getN1() == this) {
+                        edge.getN2().setState(State.SUGGESTED);
+                    } else {
+                        edge.getN1().setState(State.SUGGESTED);
+                    }
+                    break;
+                // case SUGGESTED:
+                // if ((edge.getN1() == this &&
+                // edge.getN2().getState().equals(State.SELECTED))
+                // || (edge.getN2() == this &&
+                // edge.getN1().getState().equals(State.SELECTED))) {
+                // // error scenario
+                // } else {
+                // edge.setState(State.SELECTED);
+                // }
+                // break;
+                default:
+                    break;
+                }
+            }
+        }
+    }
 
-		Edge e = new Edge(id, this, n, weight);
-		edgeSet.add(e);
-		n.getEdgeSet().add(e);
-		return e;
-	}
+    public State getState() {
+        return state;
+    }
 
-	public void pickNode(MST mst) {
-		if (mst.isFirstNode() && state.equals(State.SUGGESTED)) {
-			state = State.SELECTED;
-			mst.setFirstNode(false);
-			for (Node n : mst.getNodeSet()) {
-				if (n != this) {
-					n.setState(State.NOT_SELECTED);
-				}
-			}
-			for (Edge edge : edgeSet) {
-				switch (edge.getState()) {
-				case NOT_SELECTED:
-					edge.setState(State.SUGGESTED);
-					if (edge.getN1() == this) {
-						edge.getN2().setState(State.SUGGESTED);
-					} else {
-						edge.getN1().setState(State.SUGGESTED);
-					}
-					break;
-				// case SUGGESTED:
-				// if ((edge.getN1() == this &&
-				// edge.getN2().getState().equals(State.SELECTED))
-				// || (edge.getN2() == this &&
-				// edge.getN1().getState().equals(State.SELECTED))) {
-				// // error scenario
-				// } else {
-				// edge.setState(State.SELECTED);
-				// }
-				// break;
-				default:
-					break;
-				}
-			}
-		}
-	}
+    public void setState(State state) {
+        this.state = state;
+        switch(state){
+            case NOT_SELECTED :
+                setImage("images/bulb_dull.png");
+            break;
+            case SELECTED :
+                setImage("images/bulb_yellow.png");
+            break;
+            case SUGGESTED :
+                setImage("images/bulb_orange.png");
+            break;
+        }
+    }
 
-	public State getState() {
-		return state;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setState(State state) {
-		this.state = state;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public Set<Edge> getEdgeSet() {
+        return edgeSet;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Set<Edge> getEdgeSet() {
-		return edgeSet;
-	}
-
-	public void setEdgeSet(Set<Edge> edgeSet) {
-		this.edgeSet = edgeSet;
-	}
+    public void setEdgeSet(Set<Edge> edgeSet) {
+        this.edgeSet = edgeSet;
+    }
 }

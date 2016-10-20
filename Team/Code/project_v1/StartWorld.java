@@ -21,7 +21,7 @@ public class StartWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
        super(800, 600, 1); 
-       gfs = new GreenfootSound("sounds/GameStart.wav");
+       gfs = new GreenfootSound("sounds/Adrenaline.mp3");
        gfs.playLoop();
        Font font = new Font("serif",Font.BOLD,20);
        txtB = new TextBox(new Point(150,40),"",font);
@@ -31,7 +31,7 @@ public class StartWorld extends World
        
        
        btnClick = new Button("Start game", new Point(100, 30));
-        addObject(btnClick, 388, 419);
+       addObject(btnClick, 388, 419);
        prepare();
     }
     
@@ -42,10 +42,11 @@ public class StartWorld extends World
         {
             // Add 1 to the number already in my lblCounter
             gfs.stop();
-            Greenfoot.playSound("sounds/start.wav");
+            Greenfoot.playSound("sounds/GameStart.wav");
             String name = txtB.getText();
             System.out.println(name);
             World w = new MyWorld(name);
+            //World w = new GameWorld(name);
             Greenfoot.setWorld(w);
         }
 
