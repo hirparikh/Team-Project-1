@@ -1,0 +1,24 @@
+Actvity Name : Minimal Spanning tree
+
+Game Idea: 
+2 spies of different country are after a secret of nuclear weapon.The secret is hidden inside a locker.
+In front of the locker, there are few nodes and all the nodes are joined by circuit wires. Whenever 2 nodes are joined,
+current of specific strength flows through them. The current strength may differ for different pairs of nodes.Also the strengths 
+are marked on the circuit board.
+The 2 players have to select all the nodes but the total current flowing through the whole circuit should be minimum.
+Also there will be a time limit for the players to open the locker.
+Once they start, the timer will be started. The one who completes the game first will take the secret with him and the other
+will die due to the massive voltage passing through his body.
+
+
+
+
+Sept 22,2016 :
+
+As per the discussion, we need to decide following aspects of the idea mentioned above:
+1. The units to be considered as weights
+2. The timer for the user 
+3. What exactly multiplayer game means? Does this mean that we ca have 2 players playing the game on 2 different laptops?
+    Also how will be the winner decided?
+4. Also we need to confirm the idea with the professor.
+
