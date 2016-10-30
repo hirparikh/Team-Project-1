@@ -46,7 +46,6 @@ public class InstructionWorld extends World
         
         if (goButton.wasClicked())
         {
-           
             sound.stop();
             Greenfoot.playSound("sounds/notification_bhopu.wav");
             World w = new MyWorld(playerName);
