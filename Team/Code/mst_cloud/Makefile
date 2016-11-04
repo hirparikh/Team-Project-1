@@ -13,7 +13,14 @@ test: compile app
 	java -cp dist/restlet.jar:dist/restlet-json.jar:dist/json.jar:dist/app.jar api.MSTServer
 
 compile: 
-	javac -cp dist/restlet.jar:dist/restlet-json.jar:dist/json.jar -d build \
+	javac -cp \
+	dist/json.jar:\
+	dist/restlet.jar:\
+	dist/restlet-json.jar:\
+	dist/restlet-jackson.jar:\
+	dist/jackson-core-2.8.3.jar:\
+	dist/jackson-annotations-2.8.3.jar \
+	-d build \
 	src/api/*.java
 
 run:
