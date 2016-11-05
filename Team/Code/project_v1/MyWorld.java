@@ -44,7 +44,7 @@ public class MyWorld extends World
         TreasureChest treasurechest = new TreasureChest();
         addObject(treasurechest,609,90);
 
-        MST mst = new MST(scoreboard);
+        MST mst = new MST(scoreboard, treasurechest);
         
         //Add the nodes to the world
         Node n1= new Node(1,mst);
