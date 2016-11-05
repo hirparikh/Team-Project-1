@@ -35,6 +35,11 @@ public class MyWorld extends World
         ScoreBoard scoreboard = new ScoreBoard(this);
         addObject(scoreboard,120,70);
         scoreboard.updateScore(0, 0);
+        
+        //Add timer object
+        Timer timer = new Timer(180);
+        addObject(timer,350,70);
+        
         //Add the treasure chest object
         TreasureChest treasurechest = new TreasureChest();
         addObject(treasurechest,609,90);
