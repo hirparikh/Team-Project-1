@@ -15,9 +15,11 @@ public class MST extends Actor
     private Set<Edge> edgeSet = new HashSet<>();
     private int minimum = 18;
     private ScoreBoard sb;
+    private TreasureChest tc;
     
-    public MST(ScoreBoard sb){
+    public MST(ScoreBoard sb, TreasureChest tc){
         this.sb = sb;
+        this.tc = tc;
     }
     /**
      * Act - do whatever the MST wants to do. This method is called whenever
@@ -86,6 +88,7 @@ public class MST extends Actor
             // eureka
             Greenfoot.playSound("sounds/win.mp3");
             System.out.println("Eureka");
+            tc.setImage("images/open_chest.png");
         } else if(result > minimum){
             // ooops...!! not eureka..!!
             Greenfoot.playSound("sounds/sorry.mp3");
