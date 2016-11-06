@@ -59,32 +59,42 @@ public class MyWorld extends World
         addObject(n4,597,343);
         addObject(n5,478,225);
 
-        //Add the edges to the world
+       //Add the edges to the world
         Edge e1 = new Edge(1, n2, n4, 9, mst);
         n2.getEdgeSet().add(e1);
         n4.getEdgeSet().add(e1);
         addObject(e1,533,424);
         e1.turn(45);
+        //Setting flag for the edge to indicate if it is to be scaled
+        e1.setScaleImage(false);
         Edge e2 = new Edge(2, n1, n2, 3, mst);
         n2.getEdgeSet().add(e2);
         n1.getEdgeSet().add(e2);
         addObject(e2,385,482);
         e2.turn(90);
+        //Setting flag for the edge to indicate if it is to be scaled
+        e2.setScaleImage(false);
         Edge e3 = new Edge(3, n4, n5, 7, mst);
         n5.getEdgeSet().add(e3);
         n4.getEdgeSet().add(e3);
         addObject(e3,536,307);
         e3.turn(-45);
+        //Setting flag for the edge to indicate if it is to be scaled
+        e3.setScaleImage(false);
         Edge e4 = new Edge(4, n3, n5, 4, mst);
         n3.getEdgeSet().add(e4);
         n5.getEdgeSet().add(e4);
         addObject(e4,401,277);
         e4.turn(60);
+        //Setting flag for the edge to indicate if it is to be scaled
+        e4.setScaleImage(false);
         Edge e5 = new Edge(5, n1, n3, 8, mst);
         n1.getEdgeSet().add(e5);
         n3.getEdgeSet().add(e5);
         addObject(e5,300,389);
         e5.turn(20);
+        //Setting flag for the edge to indicate if it is to be scaled
+        e5.setScaleImage(false);
         Edge e6 = new Edge(6, n2, n3, 6, mst);
         n2.getEdgeSet().add(e6);
         n3.getEdgeSet().add(e6);
@@ -93,6 +103,12 @@ public class MyWorld extends World
         GreenfootImage e6Img = e6.getImage();
         e6Img.scale(11,200);
         e6.setImage(e6Img);
+        //Setting flag for the edge to indicate if it is to be scaled
+        e6.setScaleImage(true);
+         //Set the width and height for scaling
+        e6.setImgHeight(200);
+        e6.setImageWidth(11);
+
         Edge e7 = new Edge(7, n4, n3, 5, mst);
         n3.getEdgeSet().add(e7);
         n4.getEdgeSet().add(e7);
@@ -101,6 +117,11 @@ public class MyWorld extends World
         GreenfootImage e7Img = e7.getImage();
         e7Img.scale(11,260);
         e7.setImage(e7Img);
+        //Setting flag for the edge to indicate if it is to be scaled
+        e7.setScaleImage(true);
+        //Set the width and height for scaling
+        e7.setImgHeight(260);
+        e7.setImageWidth(11);
 
         
         //Add the labels to the world displaying weights
