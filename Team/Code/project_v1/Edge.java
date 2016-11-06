@@ -12,6 +12,12 @@ public class Edge extends Actor
     private int id, weight;
     private Node n1, n2;
     private MST mst;
+    //The height of the image of the edge
+    private int imgHeight ;
+    //The width of the image of the edge
+    private int imgWidth ;
+    //Indicates if the image of the edge is to be scaled
+    private boolean scaleImage ;
     /**
      * Act - do whatever the Edge wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -91,6 +97,23 @@ public class Edge extends Actor
                 setImage("images/line_orange.png");
             break;
         }
+        //After replacing the image for the actor, check if the image is to be sclaed
+       scaleImageOfActor();
+    }
+    
+     /**
+     * Checks if the image of the edge is to be scaled. If the image is to be scaled, then get the desired dimensions for the image to be used
+     * that are already set on the edge object and scale the image accordingly.
+     */
+    public void scaleImageOfActor(){
+         if(scaleImage){
+            //If the image is to be scaled, get the current image of the actor
+            GreenfootImage img = getImage();
+            //Scale it to desired dimensions
+            img.scale(imgWidth,imgHeight);
+            //Set the image on the actor
+            setImage(img);
+        }
     }
 
     public int getId() {
@@ -123,6 +146,18 @@ public class Edge extends Actor
 
     public void setN2(Node n2) {
         this.n2 = n2;
+    }
+    
+    public void setImgHeight(int imgHeight){
+        this.imgHeight = imgHeight;
+    }
+    
+    public void setImageWidth(int imgWidth){
+        this.imgWidth = imgWidth;
+    }
+
+    public void setScaleImage( boolean scaleImage){
+        this.scaleImage = scaleImage;
     }
 
 }
