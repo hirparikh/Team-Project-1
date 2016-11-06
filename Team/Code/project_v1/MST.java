@@ -89,6 +89,10 @@ public class MST extends Actor
             Greenfoot.playSound("sounds/win.mp3");
             System.out.println("Eureka");
             tc.setImage("images/open_chest.png");
+            //Added code to shake the open-chest image for emphasis
+            tc.move(40);
+            Greenfoot.delay(5);
+            tc.move(-40);
         } else if(result > minimum){
             // ooops...!! not eureka..!!
             Greenfoot.playSound("sounds/sorry.mp3");
