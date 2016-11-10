@@ -16,7 +16,7 @@ public class MSTServer extends Application {
     @Override
     public Restlet createInboundRoot() {
         Router router = new Router(getContext()) ;
-        router.attach("/mst", MSTResource.class);        
+        router.attach("/mst", MSTResource.class);
         return router;
     }
 }

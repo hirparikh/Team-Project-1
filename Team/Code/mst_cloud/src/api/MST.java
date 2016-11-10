@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class MST {
 
     private static MST mst;
-    private HashMap<String,Integer> map = new HashMap<String,Integer>();
+    private HashMap<String,Score> map = new HashMap<String,Score>();
 
     public static MST getInstance(){
 	if(mst == null){
@@ -16,7 +16,7 @@ public class MST {
 	}
     }
 
-    public HashMap<String, Integer> getMap(){
+    public HashMap<String, Score> getMap(){
 	return map;
     }
 }

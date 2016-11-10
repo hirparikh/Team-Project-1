@@ -1,0 +1,3 @@
+javac -cp dist\restlet.jar;dist\restlet-json.jar;dist\json.jar;dist\restlet-jackson.jar;dist\jackson-core-2.8.3.jar;dist\jackson-annotations-2.8.3.jar;dist\jackson-databind-2.8.3;dist\jackson-dataformat-csv-2.8.3;dist\jackson-dataformat-smile-2.8.3;dist\jackson-dataformat-xml-2.8.3;dist\jackson-dataformat-yaml-2.8.3 -d build src\api\*.java
+
+java -cp dist\restlet.jar;dist\restlet-json.jar;dist\json.jar;dist\restlet-jackson.jar;dist\jackson-core-2.8.3.jar;dist\jackson-annotations-2.8.3.jar;dist\jackson-databind-2.8.3;dist\jackson-dataformat-csv-2.8.3;dist\jackson-dataformat-smile-2.8.3;dist\jackson-dataformat-xml-2.8.3;dist\jackson-dataformat-yaml-2.8.3:dist\app.jar api.MSTServer
