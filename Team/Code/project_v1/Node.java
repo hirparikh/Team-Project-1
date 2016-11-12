@@ -56,20 +56,11 @@ public class Node extends Actor
                         edge.getN1().setState(State.SUGGESTED);
                     }
                     break;
-                // case SUGGESTED:
-                // if ((edge.getN1() == this &&
-                // edge.getN2().getState().equals(State.SELECTED))
-                // || (edge.getN2() == this &&
-                // edge.getN1().getState().equals(State.SELECTED))) {
-                // // error scenario
-                // } else {
-                // edge.setState(State.SELECTED);
-                // }
-                // break;
                 default:
                     break;
                 }
             }
+		 mst.checkResult();
         }
     }
 

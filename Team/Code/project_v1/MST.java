@@ -15,6 +15,7 @@ public class MST extends Actor
     private Set<Edge> edgeSet = new HashSet<>();
     private int minimum = 18;
     private ScoreBoard sb;
+    private boolean isFinished;
     private TreasureChest tc;
     
     public MST(ScoreBoard sb, TreasureChest tc){
@@ -83,8 +84,18 @@ public class MST extends Actor
             if (edge.getState().equals(State.SELECTED))
                 result += edge.getWeight();
         }
-        sb.updateScore(result, 100);
+        int selectedNodes = 0;
+        for (Node node : nodeSet) {
+            if (node.getState().equals(State.SELECTED)) {
+                selectedNodes++;
+            }
+        }
+        int perc = selectedNodes * 100 / nodeSet.size();
+        sb.updateScore(result, perc, selectedNodes == nodeSet.size());
+        if(selectedNodes == nodeSet.size()){
+            isFinished = true;
         if (result == minimum) {
+
             // eureka
             Greenfoot.playSound("sounds/win.mp3");
             System.out.println("Eureka");
@@ -97,7 +108,9 @@ public class MST extends Actor
             // ooops...!! not eureka..!!
             Greenfoot.playSound("sounds/sorry.mp3");
             System.out.println("You haven't connected bulbs with minimum volts");
+
         }
+    }
     }
 
     public boolean isFirstNode() {
@@ -131,4 +144,18 @@ public class MST extends Actor
     public void setEdgeSet(Set<Edge> edgeSet) {
         this.edgeSet = edgeSet;
     }
+    public boolean isIsFinished(){
+        return isFinished;
+    }
+    
+    public void setIsFinished(boolean isFinished){
+        this.isFinished = isFinished;
+    }
+
+
+
+
+
+
+
 }

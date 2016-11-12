@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=MST
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ MST\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=sb
-comment1.target=MST(ScoreBoard)
+comment1.params=sb\ tc
+comment1.target=MST(ScoreBoard,\ TreasureChest)
 comment10.params=
 comment10.target=int\ getMinimum()
 comment11.params=minimum
@@ -11,6 +11,10 @@ comment12.params=
 comment12.target=java.util.Set\ getEdgeSet()
 comment13.params=edgeSet
 comment13.target=void\ setEdgeSet(java.util.Set)
+comment14.params=
+comment14.target=boolean\ isIsFinished()
+comment15.params=isFinished
+comment15.target=void\ setIsFinished(boolean)
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ MST\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
@@ -28,4 +32,4 @@ comment8.params=
 comment8.target=java.util.Set\ getNodeSet()
 comment9.params=nodeSet
 comment9.target=void\ setNodeSet(java.util.Set)
-numComments=14
+numComments=16

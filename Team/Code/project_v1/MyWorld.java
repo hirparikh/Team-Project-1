@@ -26,6 +26,7 @@ public class MyWorld extends World
         gfs = new GreenfootSound("sounds/Adrenaline.mp3");
         gfs.playLoop();
         setBackground(new GreenfootImage("back_image1.jpg"));
+		this.name = name;
         prepare();
     }
     
@@ -34,7 +35,8 @@ public class MyWorld extends World
         //Add the scoreboard object
         ScoreBoard scoreboard = new ScoreBoard(this);
         addObject(scoreboard,120,70);
-        scoreboard.updateScore(0, 0);
+        scoreboard.updateScore(0, 0, false);
+        scoreboard.printScore();
         
         //Add timer object
         Timer timer = new Timer(180);
@@ -154,6 +156,22 @@ public class MyWorld extends World
         mst.getEdgeSet().add(e5);
         mst.getEdgeSet().add(e6);
         mst.getEdgeSet().add(e7);
+		
+
+		new Thread(){
+            public void run(){
+                do{
+                    scoreboard.printScore();
+                    try{
+                        Thread.sleep(1000);
+                    }catch(Exception ex){
+                        ex.printStackTrace();
+                    }
+                }while(!mst.isIsFinished());
+                timer.stop();
+                scoreboard.printScore();
+            }
+        }.start();
     }
 
 }
