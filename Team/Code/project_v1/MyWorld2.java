@@ -103,7 +103,8 @@ public class MyWorld2 extends World
         
          e6.setScaleImage(true);
          //Set the width and height for scaling
-        e6.setImgHeight(Math.sqrt((n1.getX()*n5.getX())+(n1.getY()*n5.getY())));
+        //e6.setImgHeight(Math.sqrt((n1.getX()*n5.getX())+(n1.getY()*n5.getY())));
+        e6.setImgHeight(200);
         e6.setImageWidth(11);
         
         Edge e7 = new Edge(7, n1, n4, 15, mst);
