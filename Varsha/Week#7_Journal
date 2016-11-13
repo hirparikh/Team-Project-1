@@ -1,0 +1,14 @@
+Week#7:
+
+•	Currently, the team is coming up together regularly to get pending tasks done. 
+•	Integration of the code is done in the meetings itself. Emphasis is given on writing unit tests and testing the code for various test cases.
+•	We are also creating and updating the required REST services and hosting them in Docker cloud.
+•	Feedback is continuously taken on any new work done in the meeting itself so that there are no delays in doing the changes.
+•	There are few glitches in the logics that we are currently trying to resolve. The glitches are mainly about the user interface.
+•	Also this week, I have taken the task of implementing the wait condition with a team member in which the game does not start until all the players have joined.
+•	Simultaneously, we are individually studying design patterns to implement the same in the project.
+
+Upcoming week:
+
+•	Emphasis is on getting the pending tasks done. I will be teaming with other members to get the multiplayer aspect and GUI done.
+•	We will be also discussing on the design patterns if anyone in the team needs help.
