@@ -6,4 +6,6 @@ comment1.target=MyWorld2()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MyWorld2.\r\n\ \r\n
 comment2.params=
 comment2.target=void\ prepare()
-numComments=3
+comment3.params=
+comment3.target=void\ run()
+numComments=4

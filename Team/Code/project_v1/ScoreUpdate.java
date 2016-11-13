@@ -9,11 +9,12 @@ import org.restlet.ext.json.* ;
 
 public class ScoreUpdate{
 
-  static String ipAddress = "192.168.43.9";
+  //static String ipAddress = "192.168.43.9";
+  static String ipAddress = "localhost";
     public static void main(String[] args){
         System.out.println(getScore());
         Score score = new Score();  
-        score.setId("Vikas");
+        score.setId("darshit");
         score.setScore(10);
         setScore(score);
         System.out.println(getScore());
