@@ -11,6 +11,8 @@ public class Score
     private int score;
     private int percentage;
     private boolean isFinished;
+    private boolean isJoined;
+    
 
     /**
      * Constructor for objects of class Score
@@ -50,6 +52,15 @@ public class Score
     public boolean isIsFinished(){
         return isFinished;
     }
+    
+    
+    public boolean isIsJoined() {
+		return isJoined;
+	}
+
+	public void setIsJoined(boolean isJoined) {
+		this.isJoined = isJoined;
+	}
     
     public String toString(){
         return id+":"+score;
