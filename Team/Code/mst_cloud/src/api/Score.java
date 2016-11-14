@@ -1,10 +1,14 @@
 package api ;
 
-public class Score{
-	private String id;
+public class Score  
+{
+   
+    private String id;
     private int score;
     private int percentage;
     private boolean isFinished;
+    private boolean isJoined;
+    
 
     /**
      * Constructor for objects of class Score
@@ -45,7 +49,17 @@ public class Score{
         return isFinished;
     }
     
+    
+    public boolean isIsJoined() {
+	return isJoined;
+    }
+
+    public void setIsJoined(boolean isJoined) {
+	this.isJoined = isJoined;
+    }
+    
     public String toString(){
         return id+":"+score;
     }
+    
 }
