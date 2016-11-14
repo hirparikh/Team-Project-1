@@ -1,11 +1,15 @@
 #BlueJ class context
 comment0.target=Score
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Score\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Score\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=Score()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Score\r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Score\n
 comment10.params=
-comment10.target=java.lang.String\ toString()
+comment10.target=boolean\ isIsJoined()
+comment11.params=isJoined
+comment11.target=void\ setIsJoined(boolean)
+comment12.params=
+comment12.target=java.lang.String\ toString()
 comment2.params=id
 comment2.target=void\ setId(java.lang.String)
 comment3.params=
@@ -22,4 +26,4 @@ comment8.params=isFinished
 comment8.target=void\ setIsFinished(boolean)
 comment9.params=
 comment9.target=boolean\ isIsFinished()
-numComments=11
+numComments=13

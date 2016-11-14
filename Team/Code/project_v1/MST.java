@@ -91,7 +91,7 @@ public class MST extends Actor
             }
         }
         int perc = selectedNodes * 100 / nodeSet.size();
-        sb.updateScore(result, perc, selectedNodes == nodeSet.size());
+        sb.updateScore(result, perc, selectedNodes == nodeSet.size(),true);
         if(selectedNodes == nodeSet.size()){
             isFinished = true;
         if (result == minimum) {

@@ -41,10 +41,17 @@ public class StartWorld extends World
         if (btnClick.wasClicked())
         {
             // Add 1 to the number already in my lblCounter
-            
             gfs.stop();
             String name = txtB.getText();
             System.out.println(name);
+            //Register the player
+            Score score =new Score();
+            score.setId(name);
+            score.setScore(0);
+            score.setPercentage(0);
+            score.setIsFinished(false);
+            score.setIsJoined(false);
+            ScoreUpdate.setScore(score);
             World w = new InstructionWorld(name);
             //World w = new GameWorld(name);
             Greenfoot.setWorld(w);

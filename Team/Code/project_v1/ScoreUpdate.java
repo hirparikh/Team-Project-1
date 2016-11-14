@@ -7,14 +7,15 @@ import org.restlet.ext.jackson.* ;
 import org.restlet.resource.* ;
 import org.restlet.ext.json.* ;
 
+
+
 public class ScoreUpdate{
 
-  //static String ipAddress = "192.168.43.9";
-  static String ipAddress = "localhost";
+  static String ipAddress = "10.0.0.175";
     public static void main(String[] args){
         System.out.println(getScore());
         Score score = new Score();  
-        score.setId("darshit");
+        score.setId("Vikas");
         score.setScore(10);
         setScore(score);
         System.out.println(getScore());
@@ -24,8 +25,9 @@ public class ScoreUpdate{
 public static HashMap<String,Score> getScore() 
 {
     try {
-        ClientResource helloClientresource = new ClientResource("http://"+ipAddress+":8080/mst"); 
-        Representation result = helloClientresource.get();
+        ServerConnection serverConn = new ServerConnection();
+        ClientResource httpServerConn = serverConn.getServerConnection("http://"+ipAddress+":8080/mst");
+        Representation result = httpServerConn.get();
         JacksonRepresentation<HashMap> inputRep = new JacksonRepresentation<HashMap> ( result, HashMap.class ) ;
         HashMap mp = inputRep.getObject();
         Iterator it = mp.entrySet().iterator();
@@ -44,6 +46,9 @@ public static HashMap<String,Score> getScore()
     return null;
 }
 
+
+
+
 public static void setScore(Score score) 
 {
     try {
@@ -54,4 +59,7 @@ public static void setScore(Score score)
         e.printStackTrace();
     }  
 }
+
+
+
 }

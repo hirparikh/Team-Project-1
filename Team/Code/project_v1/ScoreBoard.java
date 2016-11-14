@@ -1,6 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 import java.util.*;
+import java.io.IOException;
+import org.json.* ;
+import org.restlet.representation.* ;
+import org.restlet.ext.jackson.* ;
+import org.restlet.resource.* ;
+import org.restlet.ext.json.* ;
 
 /**
  * Write a description of class ScoreBoard here.
@@ -18,6 +24,7 @@ public class ScoreBoard extends Actor
   
     Text scoreText, percText, oppScoreText, oppPercText;
     World w;
+    static String ipAddress = "10.0.0.175";
     public ScoreBoard(World w){
          this.w = w;
          setImage("images/score_board.png");
@@ -31,8 +38,29 @@ public class ScoreBoard extends Actor
     }    
 
     public void printScore(){
-        String player_id = "Vikas";
-       String opponent_id = "darshit";
+        try{
+        ServerConnection sc = new ServerConnection();
+        ClientResource clientResourceObj = sc.getServerConnection("http://"+ipAddress+":8080/mst");
+        
+         Representation result = clientResourceObj.get();
+        JacksonRepresentation<HashMap> inputRep = new JacksonRepresentation<HashMap> ( result, HashMap.class ) ;
+         HashMap mp = inputRep.getObject();
+         
+         String[] players_name = new String[2];
+         int i=0;
+         
+        Iterator it = mp.entrySet().iterator();
+        if(it.hasNext()){
+                if(i<2){
+                Map.Entry entry = (Map.Entry)it.next();
+                players_name[i++]=(String)entry.getKey(); 
+            }
+        }
+        
+        
+        
+        String player_id =players_name[0];
+        String opponent_id = players_name[1];
         ScoreUpdate su = new ScoreUpdate();
         
         //HashMap<String,HashMap<String,Object>> scores = su.getScore();
@@ -61,16 +89,20 @@ public class ScoreBoard extends Actor
         w.addObject(oppScoreText,getX(),getY()+5);
         oppPercText = new Text("Opp Completed : "+scores.get(opponent_id).getPercentage()+"% ", Color.black);
         w.addObject(oppPercText,getX(),getY()+20);
-        
+    }catch (Exception e){
+        e.printStackTrace();
+    }
         
         
     } 
     
-    public void updateScore(int score,int perc, boolean isFinished){
+    public void updateScore(int score,int perc, boolean isFinished,boolean isJoined){
         this.score.setScore(score);
         this.score.setPercentage(perc);
         this.score.setIsFinished(isFinished);
+        this.score.setIsFinished(isJoined);
         ScoreUpdate.setScore(this.score);
+       
         
        /* if(scoreText != null){
             w.removeObject(scoreText);

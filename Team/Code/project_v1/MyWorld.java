@@ -35,7 +35,7 @@ public class MyWorld extends World
         //Add the scoreboard object
         ScoreBoard scoreboard = new ScoreBoard(this);
         addObject(scoreboard,120,70);
-        scoreboard.updateScore(0, 0, false);
+        scoreboard.updateScore(0, 0, false,false);
         scoreboard.printScore();
         
         //Add timer object
