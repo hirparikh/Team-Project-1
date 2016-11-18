@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=BackGround
+comment1.params=
+comment1.target=BackGround()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ showGameOver()
+numComments=4
