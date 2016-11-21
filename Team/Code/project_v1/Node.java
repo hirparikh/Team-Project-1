@@ -1,96 +1,109 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
 /**
  * Write a description of class Node here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Node extends Actor
+public class Node extends Element implements IGameSubject, IGameObserver
 {
-    private State state = State.SUGGESTED;
-    private int id;
     private Set<Edge> edgeSet;
-    private MST mst;
-
+    private GameScreen gameScreen;
+    private CardPart cardPart;
     
-    /**
-     * Act - do whatever the Node wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Node(GameScreen gameScreen, CardPart cardPart) {
+        super(State.SUGGESTED);
+        this.gameScreen = gameScreen;
+        edgeSet = new HashSet<Edge>();
+        this.cardPart = cardPart;
+    }
+    
     public void act() 
     {
         if (Greenfoot.mouseClicked(this)) {
-           Greenfoot.playSound("sounds/node_click.mp3");
+           //Greenfoot.playSound("sounds/node_click.mp3");
            pickNode();  
        }
-    }    
-    
-    public Node(int id, MST mst) {
-        // TODO Auto-generated constructor stub
-        this.id = id;
-        this.mst = mst;
-        setImage(new GreenfootImage("images/bulb_orange.png"));
-        edgeSet = new HashSet<>();
     }
-
-    
     
     public void pickNode() {
-        if (mst.isFirstNode() && state.equals(State.SUGGESTED)) {
+        if (gameScreen.isFirstNode() && state.equals(State.SUGGESTED)) {
             setState(State.SELECTED);
-            mst.setFirstNode(false);
-            for (Node n : mst.getNodeSet()) {
+            gameScreen.setFirstNode(false);
+            for (Node n : gameScreen.getNodeSet()) {
                 if (n != this) {
                     n.setState(State.NOT_SELECTED);
                 }
             }
-            for (Edge edge : edgeSet) {
-                switch (edge.getState()) {
-                case NOT_SELECTED:
-                    edge.setState(State.SUGGESTED);
-                    if (edge.getN1() == this) {
-                        edge.getN2().setState(State.SUGGESTED);
-                    } else {
-                        edge.getN1().setState(State.SUGGESTED);
-                    }
-                    break;
-                default:
-                    break;
-                }
-            }
-		 mst.checkResult();
+            notifyObservers(null, false);
+            moveToDestination();
+            //just to update current scoreboard
+            gameScreen.checkResult();
         }
     }
-
-    public State getState() {
-        return state;
+    
+    public void update(Element element, boolean doChain){
+        switch(state){
+            case NOT_SELECTED:
+                setState(State.SUGGESTED);
+            break;
+            case SELECTED:
+                //do nothing
+            break;
+            case SUGGESTED:
+                if(doChain){
+                    setState(State.SELECTED);
+                    notifyObservers(element, false);
+                    moveToDestination();
+                }
+            break;
+        }
     }
-
-    public void setState(State state) {
+    
+    
+    public void notifyObservers(Element element, boolean doChain){
+        for(IGameObserver observer: observers){
+            if(element != observer){
+                observer.update(this, doChain);
+            }
+        } 
+    }
+    
+    public void setState(State state){ 
         this.state = state;
         switch(state){
             case NOT_SELECTED :
-                setImage("images/bulb_dull.png");
+                setImage("node1.png");
             break;
             case SELECTED :
-                setImage("images/bulb_yellow.png");
+                setImage("node3.png");
             break;
             case SUGGESTED :
-                setImage("images/bulb_orange.png");
+                setImage("node2.png");
             break;
         }
     }
-
-    public int getId() {
-        return id;
+    
+    public void moveToDestination(){
+        int initX = cardPart.getX();
+        int initY = cardPart.getY();
+        int destX = cardPart.getDestX();
+        int destY = cardPart.getDestY();
+        cardPart.turnTowards(destX, destY);
+        double distance = Math.sqrt(Math.pow(Math.abs(destX - initX),2) + Math.pow(Math.abs(destY - initY),2));
+        distance /= 20;
+        for(int i = 0; i < 20; i++)
+        {
+            cardPart.move(distance);
+            Greenfoot.delay(2); 
+        }
+        cardPart.setRotation(0);
+        Greenfoot.delay(2);
+        cardPart.setLocation(destX, destY);
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    
     public Set<Edge> getEdgeSet() {
         return edgeSet;
     }

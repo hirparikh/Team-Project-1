@@ -1,129 +1,92 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
-/**
- * Write a description of class Edge here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Edge extends Actor
+public class Edge extends Element implements IGameSubject, IGameObserver
 {
-    private State state = State.NOT_SELECTED;
-    private int id, weight;
+    private int weight;
     private Node n1, n2;
-    private MST mst;
-    //The height of the image of the edge
-    private int imgHeight ;
-    //The width of the image of the edge
-    private int imgWidth ;
-    //Indicates if the image of the edge is to be scaled
-    private boolean scaleImage ;
-    /**
-     * Act - do whatever the Edge wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private GameScreen gameScreen;
+    private boolean scaleImage;
+    private String[] alignArr;
+    
+    public Edge(Node n1, Node n2, int weight, String[] alignArr, GameScreen gameScreen) {
+         super(State.NOT_SELECTED);
+         this.weight = weight;
+         this.n1 = n1;
+         this.n2 = n2;
+         this.alignArr = alignArr;
+         this.gameScreen = gameScreen;
+         setImage(alignArr[0]);
+    }
+    
     public void act() 
     {
-        // Add your action code here.
-        
-        if(Greenfoot.mouseClicked(this) && !mst.isFirstNode()){
-            Greenfoot.playSound("sounds/edge_click.mp3");
+        if(Greenfoot.mouseClicked(this) && !gameScreen.isFirstNode()){
+            //Greenfoot.playSound("sounds/edge_click.mp3");
             pickEdge();            
         }
-        
-    }    
-    
-    public Edge(int id, Node n1, Node n2, int weight, MST mst) {
-        // TODO Auto-generated constructor stub
-        this.id = id;
-        this.weight = weight;
-        this.n1 = n1;
-        this.n2 = n2;
-        this.mst = mst;
     }
     
     public void pickEdge() {
         if (state.equals(State.SUGGESTED)) {
             setState(State.SELECTED);
             Node other;
-            if (n1.getState().equals(State.SUGGESTED)) {
-                n1.setState(State.SELECTED);
-                other = n1;
+            if (getN1().getState().equals(State.SELECTED)) {
+                notifyObservers(getN1(), true);
             } else {
-                n2.setState(State.SELECTED);
-                other = n2;
-            }
-            for (Edge edge : other.getEdgeSet()) {
-                switch (edge.getState()) {
-                case NOT_SELECTED:
-                    edge.setState(State.SUGGESTED);
-                    if (edge.getN1().getState().equals(State.SELECTED)) {
-                        edge.getN2().setState(State.SUGGESTED);
-                    } else {
-                        edge.getN1().setState(State.SUGGESTED);
-                    }
-                    break;
-                case SUGGESTED:
-                    if ((edge.getN1() == other && edge.getN2().getState().equals(State.SELECTED))
-                            || (edge.getN2() == other && edge.getN1().getState().equals(State.SELECTED))) {
-                        edge.setState(State.NOT_SELECTED);
-                    }
-                    break;
-                default:
-                    break;
-                }
+                notifyObservers(getN2(), true);
             }
             // checking if entire graph is traversed
-            mst.checkResult();
-        } else {
-            System.out.println("oops...you hit a dead end...shoud not have done that..!!");
+            gameScreen.checkResult();
         }
-    }
-
-    public State getState() {
-        return state;
-    }
-
-    public void setState(State state) {
-         this.state = state;
-        switch(state){
-            case NOT_SELECTED :
-                setImage("images/line_gray.png");
-            break;
-            case SELECTED :
-                setImage("images/line_yellow.png");
-            break;
-            case SUGGESTED :
-                setImage("images/line_orange.png");
-            break;
-        }
-        //After replacing the image for the actor, check if the image is to be sclaed
-       scaleImageOfActor();
     }
     
-     /**
-     * Checks if the image of the edge is to be scaled. If the image is to be scaled, then get the desired dimensions for the image to be used
-     * that are already set on the edge object and scale the image accordingly.
-     */
-    public void scaleImageOfActor(){
-         if(scaleImage){
-            //If the image is to be scaled, get the current image of the actor
-            GreenfootImage img = getImage();
-            //Scale it to desired dimensions
-            img.scale(imgWidth,imgHeight);
-            //Set the image on the actor
-            setImage(img);
+    public void update(Element element, boolean doChain){
+        switch(state){
+            case NOT_SELECTED:
+                setState(State.SUGGESTED);
+                if (getN1().getState() == State.SELECTED) {
+                    notifyObservers(getN1(), doChain);
+                } else {
+                    notifyObservers(getN2(), doChain);
+                }
+            break;
+            case SELECTED:
+            //do nothing
+            break;
+            case SUGGESTED:
+                Node node = (Node)element;
+                if ((getN1() == node && getN2().getState() == State.SELECTED)
+                        || (getN2() == node && getN1().getState() == State.SELECTED)) {
+                    setState(State.NOT_SELECTED);
+                }
+            break;
         }
     }
-
-    public int getId() {
-        return id;
+    
+    public void notifyObservers(Element element, boolean doChain){
+        for(IGameObserver observer: observers){
+            if(element != observer){
+                observer.update(this, doChain);
+            }
+        }
     }
-
-    public void setId(int id) {
-        this.id = id;
+    
+    public void setState(State state) {
+         this.state = state;
+         switch(state){
+             case NOT_SELECTED :
+                setImage(alignArr[0]);
+                break;
+            case SUGGESTED :
+                setImage(alignArr[1]);
+                break;
+            case SELECTED :
+                setImage(alignArr[2]);
+                break;
+        }
     }
-
+    
     public int getWeight() {
         return weight;
     }
@@ -147,19 +110,4 @@ public class Edge extends Actor
     public void setN2(Node n2) {
         this.n2 = n2;
     }
-    
-    public void setImgHeight(int imgHeight){
-        this.imgHeight = imgHeight;
-    }
-    
-    public void setImageWidth(int imgWidth){
-        this.imgWidth = imgWidth;
-    }
-
-    public void setScaleImage( boolean scaleImage){
-        this.scaleImage = scaleImage;
-    }
-
 }
-
-
