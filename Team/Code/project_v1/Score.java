@@ -1,69 +1,95 @@
+import java.util.Comparator;
+
 /**
  * Write a description of class Score here.
  * 
- * @author (your name) 
+ * @author (your name)
  * @version (a version number or a date)
  */
-public class Score  
-{
-    // instance variables - replace the example below with your own
-    private String id;
-    private int score;
-    private int percentage;
-    private boolean isFinished;
-    private boolean isJoined;
-    
+public class Score {
+	private int id;
+	private String name;
+	private int roomId;
+	private int score;
+	private float percentage;
+	private int time;
+	private boolean isFirst;
+	private boolean didFinish;
 
-    /**
-     * Constructor for objects of class Score
-     */
-    public Score()
-    {
-    }
-    
-    public void setId(String id){
-        this.id = id;
-    }
-    
-    public String getId(){
-        return id;
-    }
-    
-    public void setScore(int score){
-        this.score = score;
-    }
-    
-    public int getScore(){
-        return score;
-    }
-
-    public void setPercentage(int percentage){
-        this.percentage = percentage;
-    }
-    
-    public int getPercentage(){
-        return percentage;
-    }
-    
-    public void setIsFinished(boolean isFinished){
-        this.isFinished = isFinished;
-    }
-    
-    public boolean isIsFinished(){
-        return isFinished;
-    }
-    
-    
-    public boolean isIsJoined() {
-		return isJoined;
+	public int getId() {
+		return id;
 	}
 
-	public void setIsJoined(boolean isJoined) {
-		this.isJoined = isJoined;
+	public void setId(int id) {
+		this.id = id;
 	}
-    
-    public String toString(){
-        return id+":"+score;
-    }
-    
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getRoomId() {
+		return roomId;
+	}
+
+	public void setRoomId(int roomId) {
+		this.roomId = roomId;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public float getPercentage() {
+		return percentage;
+	}
+
+	public void setPercentage(float percentage) {
+		this.percentage = percentage;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public boolean isFirst() {
+		return isFirst;
+	}
+
+	public void setFirst(boolean isFirst) {
+		this.isFirst = isFirst;
+	}
+
+	public boolean isDidFinish() {
+		return didFinish;
+	}
+
+	public void setDidFinish(boolean didFinish) {
+		this.didFinish = didFinish;
+	}
+
+	public String toString() {
+		return name + ":score + " + score + ":percentage + " + percentage + ":time + " + time; 
+	}
+
+	public static Comparator<Score> timeComparator = new Comparator<Score>() {
+
+		@Override
+		public int compare(Score o1, Score o2) {
+			return o1.getTime() - o2.getTime();
+		}
+	};
+
 }

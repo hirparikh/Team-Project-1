@@ -1,65 +1,41 @@
-import java.net.*;
 import java.util.*;
-import java.io.IOException;
-import org.json.* ;
-import org.restlet.representation.* ;
-import org.restlet.ext.jackson.* ;
-import org.restlet.resource.* ;
-import org.restlet.ext.json.* ;
 
+public class ScoreUpdate extends Thread implements IScoreSubject
+{
+    private ArrayList<IScoreObserver> observers = new ArrayList<IScoreObserver>() ;
+    private GameWorld world;
+    private GameScreen screen;
 
-
-public class ScoreUpdate{
-
-  static String ipAddress = "10.0.0.175";
-    public static void main(String[] args){
-        System.out.println(getScore());
-        Score score = new Score();  
-        score.setId("Vikas");
-        score.setScore(10);
-        setScore(score);
-        System.out.println(getScore());
-        
+    public ScoreUpdate(GameWorld world, GameScreen screen)
+    {
+        this.world = world;
+        this.screen = screen;
+    }
+    
+    public void attach(IScoreObserver obj) {
+        observers.add(obj) ;
     }
 
-public static HashMap<String,Score> getScore() 
-{
-    try {
-        ServerConnection serverConn = new ServerConnection();
-        ClientResource httpServerConn = serverConn.getServerConnection("http://"+ipAddress+":8080/mst");
-        Representation result = httpServerConn.get();
-        JacksonRepresentation<HashMap> inputRep = new JacksonRepresentation<HashMap> ( result, HashMap.class ) ;
-        HashMap mp = inputRep.getObject();
-        Iterator it = mp.entrySet().iterator();
-        HashMap<String, Score> map = new HashMap<String, Score>();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-            JacksonRepresentation<Score> tempRep = new JacksonRepresentation<Score>( new JacksonRepresentation(pair.getValue()), Score.class ) ;
-            map.put((String)pair.getKey(), tempRep.getObject());
-            it.remove(); // avoids a ConcurrentModificationException
+    public void detach(IScoreObserver obj) {
+        observers.remove(obj) ;
+    }
+
+    public void notifyObservers(Score opponent) {
+        for (IScoreObserver obj  : observers)
+        {
+            obj.updateOpponentScore(opponent);
         }
-        //return (HashMap<String,HashMap<String,Object>>)inputRep.getObject();
-        return map;
-    } catch (Exception e){
-        e.printStackTrace();
     }
-    return null;
-}
 
-
-
-
-public static void setScore(Score score) 
-{
-    try {
-        ClientResource helloClientresource = new ClientResource("http://"+ipAddress+":8080/mst");
-        Representation result = helloClientresource.post(new JacksonRepresentation<Score>(score));
-        System.out.println(result.toString());
-    } catch (Exception e){
-        e.printStackTrace();
-    }  
-}
-
-
-
+    public void run(){
+        while(!screen.isFinished()){
+            Score opponent = Server.getScore(world.getScore());
+            notifyObservers(opponent);
+            try{
+                Thread.sleep(1000);//1 sec
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
+    }
 }
