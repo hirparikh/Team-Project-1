@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=ScoreBoard
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ScoreBoard\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=w
+comment1.target=ScoreBoard(greenfoot.World)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ printScore()
+comment4.params=score\ perc\ isFinished\ isJoined
+comment4.target=void\ updateScore(int,\ int,\ boolean,\ boolean)
+numComments=5
