@@ -1,6 +1,6 @@
 CMPE202 Fall 2016 Team Project using a CSUnplugged Activity
 
-(https://github.com/hirparikh/Team-Project-1/blob/master/project/images/S1.jpg)
+![alt text] (https://github.com/hirparikh/Team-Project-1/blob/master/project/images/S1.jpg "Cover Page")
 
 PURPOSE OF PROJECT
 ==================
