@@ -55,14 +55,14 @@ License
 This game is released under the [MIT License](https://github.com/hirparikh/Team-Project-1/blob/master/LICENSE.txt).
 
 Team BrightBuds
-============
+===============
 
-> Darshit Thesiya
+> [Darshit Thesiya](https://github.com/dthesiya)
 
-> Hiral Parikh
+> [Hiral Parikh](https://github.com/hirparikh)
 
-> Shruti Padmanabhan
+> [Shruti Padmanabhan](https://github.com/pshrutiii)
 
-> Varsha Kankariya
+> [Varsha Kankariya](https://github.com/varsha-kankariya)
 
-> Vikas Miyani
+> [Vikas Miyani](https://github.com/vikasmiyani)
