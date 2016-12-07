@@ -1,16 +1,21 @@
 CMPE202 Fall 2016 Team Project using a [CSUnplugged Activity](http://csunplugged.org/minimal-spanning-trees)
 
-![alt text] (https://github.com/hirparikh/Team-Project-1/blob/master/project/images/S1.jpg "Cover Page")
+<img src="https://github.com/hirparikh/Team-Project-1/blob/master/project/images/S1.jpg">
+
+Waffle Board Badges
+===================
+[![Stories in Backlog](https://badge.waffle.io/hirparikh/Team-Project-1.svg?label=backlog&title=Backlog)](https://waffle.io/hirparikh/Team-Project-1)
+[![Stories in In Ready](https://badge.waffle.io/hirparikh/Team-Project-1.svg?label=ready&title=Ready)](https://waffle.io/hirparikh/Team-Project-1)
+[![Stories in In Progress](https://badge.waffle.io/hirparikh/Team-Project-1.svg?label=in%20progress&title=In%20Progress)](https://waffle.io/hirparikh/Team-Project-1)
+[![Stories in In Testing](https://badge.waffle.io/hirparikh/Team-Project-1.svg?label=testing&title=In%20Testing)](https://waffle.io/hirparikh/Team-Project-1)
+[![Stories in In Review](https://badge.waffle.io/hirparikh/Team-Project-1.svg?label=review&title=In%20Review)](https://waffle.io/hirparikh/Team-Project-1)
+[![Stories in In Done](https://badge.waffle.io/hirparikh/Team-Project-1.svg?label=done&title=Done)](https://waffle.io/hirparikh/Team-Project-1)
 
 PURPOSE OF PROJECT
 ==================
 
 > To teach Minimal Spanning Tree as one of the solutions for graph traversal with minimum cost which is userful in many network designs
 
-DATE
-====
-
-> 04 Dec, 2016
 
 HOW TO START THIS GAME
 ======================
@@ -44,12 +49,12 @@ HOW TO PLAY THIS GAME
 
 * You can also see current leaderboard by clicking LEADERBOARD button on Win/Lose screen or you can play again by clicking Replay button.
 
-Team Name
-=========
+License
+=======
 
-**Team BrightBuds**
+This game is released under the [MIT License](https://github.com/hirparikh/Team-Project-1/blob/master/LICENSE.txt).
 
-Team Members
+Team BrightBuds
 ============
 
 > Darshit Thesiya
