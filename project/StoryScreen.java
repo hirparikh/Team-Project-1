@@ -8,6 +8,7 @@ import greenfoot.*;
 public class StoryScreen extends Screen {
 
     private int page = 1;
+    private GreenfootSound sound;
     
     public StoryScreen(GameWorld world) {
         super(world);
@@ -24,7 +25,9 @@ public class StoryScreen extends Screen {
             clearScreen();
             displayScreen();
         }else{
-            world.setScreen(ScreenFactory.getScreen(ScreenType.INSTRUCTION, world));
+            InstructionScreen iscreen = (InstructionScreen)ScreenFactory.getScreen(ScreenType.INSTRUCTION, world);
+            iscreen.setSound(sound);
+            world.setScreen(iscreen);
             clearScreen();
             world.getScreen().displayScreen();
         }
@@ -52,6 +55,10 @@ public class StoryScreen extends Screen {
                 break;
         }
         world.setBackground(new GreenfootImage(background));
+        if(sound == null){
+            sound = new GreenfootSound("sounds/story.mp3");
+            sound.playLoop();
+        }
         world.addObject(new NextButton(world), 910,520);
     }   
 

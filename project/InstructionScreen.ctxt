@@ -10,4 +10,6 @@ comment4.params=
 comment4.target=void\ displayScreen()
 comment5.params=
 comment5.target=void\ clearScreen()
-numComments=6
+comment6.params=sound
+comment6.target=void\ setSound(greenfoot.GreenfootSound)
+numComments=7

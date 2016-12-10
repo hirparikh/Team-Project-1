@@ -8,6 +8,7 @@ import greenfoot.*;
 public class InstructionScreen extends Screen {
     
     private NameText nameText;
+    private GreenfootSound sound;
 
     public InstructionScreen(GameWorld world) {
         super(world);
@@ -17,6 +18,7 @@ public class InstructionScreen extends Screen {
     public void setNextScreen(IScreen screen) {
         String name = nameText.getText();
         if(name != null && !name.trim().isEmpty()){
+            sound.stop();
             Score score = new Score();
             score.setName(name);
             world.setScore(score);
@@ -47,6 +49,10 @@ public class InstructionScreen extends Screen {
     @Override
     public void clearScreen() {
         world.removeObjects(world.getObjects(Actor.class));
+    }
+    
+    public void setSound(GreenfootSound sound){
+        this.sound = sound;
     }
 
 }
