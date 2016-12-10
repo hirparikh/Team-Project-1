@@ -55,7 +55,7 @@ public class StoryScreen extends Screen {
                 break;
         }
         world.setBackground(new GreenfootImage(background));
-        if(sound == null){
+        if(sound == null || !sound.isPlaying()){
             sound = new GreenfootSound("sounds/story.mp3");
             sound.playLoop();
         }
