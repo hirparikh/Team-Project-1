@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ElementFactory
+comment0.text=\r\n\ This\ file\ is\ subject\ to\ the\ terms\ and\ conditions\ defined\ in\r\n\ file\ 'LICENSE.txt',\ which\ is\ part\ of\ this\ source\ code\ package.\r\n
+comment1.params=elementType\ arr
+comment1.target=IElement\ getElement(ElementType,\ java.lang.Object[])
+comment2.params=arr
+comment2.target=IElement\ getNode(java.lang.Object[])
+comment3.params=arr
+comment3.target=IElement\ getEdge(java.lang.Object[])
+numComments=4

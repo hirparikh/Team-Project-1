@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Element
+comment1.params=state
+comment1.target=Element(State)
+comment2.params=
+comment2.target=State\ getState()
+comment3.params=obj
+comment3.target=void\ attach(IGameObserver)
+comment4.params=obj
+comment4.target=void\ detach(IGameObserver)
+numComments=5

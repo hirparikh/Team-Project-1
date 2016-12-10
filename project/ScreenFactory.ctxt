@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=ScreenFactory
+comment0.text=\r\n\ This\ file\ is\ subject\ to\ the\ terms\ and\ conditions\ defined\ in\r\n\ file\ 'LICENSE.txt',\ which\ is\ part\ of\ this\ source\ code\ package.\r\n
+comment1.params=screenType\ world
+comment1.target=IScreen\ getScreen(ScreenType,\ GameWorld)
+comment2.params=world
+comment2.target=IScreen\ getStartScreen(GameWorld)
+comment3.params=world
+comment3.target=IScreen\ getStoryScreen(GameWorld)
+comment4.params=world
+comment4.target=IScreen\ getInstructionScreen(GameWorld)
+comment5.params=world
+comment5.target=IScreen\ getWaitScreen(GameWorld)
+comment6.params=world
+comment6.target=IScreen\ getGameScreen(GameWorld)
+comment7.params=world
+comment7.target=IScreen\ getWinScreen(GameWorld)
+comment8.params=world
+comment8.target=IScreen\ getLoseScreen(GameWorld)
+comment9.params=world
+comment9.target=IScreen\ getLeaderBoardScreen(GameWorld)
+numComments=10

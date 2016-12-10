@@ -1,8 +1,13 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 import java.awt.Font;
 
-public class NameText extends UserInput
+public class NameText extends Actor
 {
     static final int MAX_LENGTH = 17;
     String name = "_ _ _ _ _";

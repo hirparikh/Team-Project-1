@@ -1,12 +1,13 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
 
 public class ElementFactory  
 {
-    
-   // Object[] arr = new Object[5]; 
-    
-    public static IElement getElement(ElementType elementType,Object[] arr)
+    public static IElement getElement(ElementType elementType, Object[] arr)
     {
-     if (elementType == null) {
+        if (elementType == null) {
             return null;
         }
         IElement element;

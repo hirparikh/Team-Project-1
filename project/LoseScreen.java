@@ -1,3 +1,8 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import greenfoot.*;
 
 public class LoseScreen extends Screen {
@@ -22,9 +27,9 @@ public class LoseScreen extends Screen {
 
 	@Override
 	public void displayScreen() {
-		world.setBackground(new GreenfootImage("S8.jpg"));
-        world.addObject(new PlayAgain(world), 240, 485);
-        world.addObject(new NextButton(world), 415,485);
+		world.setBackground(new GreenfootImage("S8_2.jpg"));
+        world.addObject(new PlayAgain(world), 640, 535);
+        world.addObject(new LeaderBoardButton(world), 840, 535);
 	}
 
 	@Override

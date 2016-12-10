@@ -1,3 +1,7 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
 
 public class ScreenFactory {
     private static IScreen startScreen;
@@ -81,7 +85,7 @@ public class ScreenFactory {
         return gameScreen;
     }
     
-    private static IScreen getWinScreen(GameWorld world){
+    private static IScreen getWinScreen(GameWorld world){ 
         if(winScreen == null){
             winScreen = new WinScreen(world);
         }

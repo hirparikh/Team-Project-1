@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=IServer
+comment1.params=score
+comment1.target=Score\ getScore(Score)
+comment2.params=score
+comment2.target=void\ setScore(Score)
+comment3.params=score
+comment3.target=Score\ reserveRoom(Score)
+comment4.params=roomId
+comment4.target=Score\ opponentArrived(int)
+comment5.params=
+comment5.target=java.util.List\ getLeaderBoard()
+numComments=6

@@ -1,27 +1,30 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class WaitActor extends UserInput
 {
-    private GameWorld world;
     private boolean isReady = false;
-    private long lastAdded = System.currentTimeMillis();
-    private WaitScreen waitScreen;
     private GifImage gif;
+    private IServer server = new Server();
     private Thread thread = new Thread("gif updater thread"){
         public void run(){
-            Score opponent = Server.reserveRoom(world.getScore());
+            Score opponent = server.reserveRoom(world.getScore());
             world.getScore().setRoomId(opponent.getRoomId());
             if(opponent != null && opponent.getName() != null){
-                waitScreen.setOpponentScore(opponent);
-                waitScreen.setNextScreen(null);
+                ((WaitScreen)world.getScreen()).setOpponentScore(opponent);
+                world.getScreen().setNextScreen(null);
             }else{
                 world.getScore().setFirst(true);
                 while(!isReady){ 
-                    opponent = Server.opponentArrived(world.getScore().getRoomId());
+                    opponent = server.opponentArrived(world.getScore().getRoomId());
                     if(opponent.getName() != null){
                         isReady = true;
-                        waitScreen.setOpponentScore(opponent);
-                        waitScreen.setNextScreen(null);
+                        ((WaitScreen)world.getScreen()).setOpponentScore(opponent);
+                        world.getScreen().setNextScreen(null);
                         break;
                     }else{
                         try{
@@ -36,8 +39,7 @@ public class WaitActor extends UserInput
     };
 
     public WaitActor(GameWorld world, String img){
-        this.world = world;
-        waitScreen = (WaitScreen) world.getScreen();
+        super(world);
         gif = new GifImage(img);
     }
     

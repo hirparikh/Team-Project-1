@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=StoryScreen
+comment1.params=world
+comment1.target=StoryScreen(GameWorld)
+comment2.params=page
+comment2.target=void\ setPage(int)
+comment3.params=screen
+comment3.target=void\ setNextScreen(IScreen)
+comment4.params=
+comment4.target=void\ setPreviousScreen()
+comment5.params=
+comment5.target=void\ displayScreen()
+comment6.params=
+comment6.target=void\ clearScreen()
+numComments=7

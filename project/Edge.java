@@ -1,3 +1,8 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
@@ -6,7 +11,6 @@ public class Edge extends Element implements IGameSubject, IGameObserver
     private int weight;
     private Node n1, n2;
     private GameScreen gameScreen;
-    private boolean scaleImage;
     private String[] alignArr;
     
     public Edge(Node n1, Node n2, int weight, String[] alignArr, GameScreen gameScreen) {
@@ -21,14 +25,14 @@ public class Edge extends Element implements IGameSubject, IGameObserver
     
     public void act() 
     {
-        if(Greenfoot.mouseClicked(this) && !gameScreen.isFirstNode()){
-            //Greenfoot.playSound("sounds/edge_click.mp3");
+        if(Greenfoot.mouseClicked(this) && !gameScreen.isFirstNode()){ 
             pickEdge();            
         }
     }
     
     public void pickEdge() {
         if (state.equals(State.SUGGESTED)) {
+            Greenfoot.playSound("sounds/node_click.mp3");
             setState(State.SELECTED);
             Node other;
             if (getN1().getState().equals(State.SELECTED)) {

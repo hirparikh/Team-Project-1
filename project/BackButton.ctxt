@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=BackButton
+comment1.params=world
+comment1.target=BackButton(GameWorld)
+comment2.params=
+comment2.target=void\ act()
+numComments=3

@@ -1,9 +1,17 @@
 #BlueJ class context
 comment0.target=ScoreUpdate
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment2.params=
-comment2.target=java.util.HashMap\ getScore()
-comment3.params=score
-comment3.target=void\ setScore(Score)
-numComments=4
+comment1.params=world
+comment1.target=ScoreUpdate(GameWorld)
+comment2.params=obj
+comment2.target=void\ attach(IScoreObserver)
+comment3.params=obj
+comment3.target=void\ detach(IScoreObserver)
+comment4.params=opponent
+comment4.target=void\ notifyObservers(Score)
+comment5.params=
+comment5.target=void\ run()
+comment6.params=
+comment6.target=boolean\ isFinished()
+comment7.params=isFinished
+comment7.target=void\ setIsFinished(boolean)
+numComments=8

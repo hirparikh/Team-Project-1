@@ -1,12 +1,11 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
-/**
- * Write a description of class Node here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Node extends Element implements IGameSubject, IGameObserver
 {
     private Set<Edge> edgeSet;
@@ -23,13 +22,13 @@ public class Node extends Element implements IGameSubject, IGameObserver
     public void act() 
     {
         if (Greenfoot.mouseClicked(this)) {
-           //Greenfoot.playSound("sounds/node_click.mp3");
            pickNode();  
        }
     }
     
     public void pickNode() {
         if (gameScreen.isFirstNode() && state.equals(State.SUGGESTED)) {
+            Greenfoot.playSound("sounds/node_click.mp3");
             setState(State.SELECTED);
             gameScreen.setFirstNode(false);
             for (Node n : gameScreen.getNodeSet()) {

@@ -1,10 +1,11 @@
 #BlueJ class context
 comment0.target=Text
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Text\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=void\ act()
-comment2.params=text\ color
-comment2.target=Text(java.lang.String,\ java.awt.Color)
-comment3.params=text
-comment3.target=void\ updateImage(java.lang.String)
-numComments=4
+comment2.params=color\ size
+comment2.target=Text(java.awt.Color,\ int)
+comment3.params=text\ color\ size
+comment3.target=Text(java.lang.String,\ java.awt.Color,\ int)
+comment4.params=text
+comment4.target=void\ changeText(java.lang.String)
+numComments=5

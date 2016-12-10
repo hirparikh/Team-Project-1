@@ -1,3 +1,8 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import greenfoot.*;
 
 public class WinScreen extends Screen {
@@ -23,8 +28,8 @@ public class WinScreen extends Screen {
 	@Override
 	public void displayScreen() {
 		world.setBackground(new GreenfootImage("S8.jpg"));
-        world.addObject(new PlayAgain(world), 240, 485);
-        world.addObject(new NextButton(world), 415,485);
+        world.addObject(new PlayAgain(world), 160, 534);
+        world.addObject(new LeaderBoardButton(world), 360, 534);
 	}
 
 	@Override

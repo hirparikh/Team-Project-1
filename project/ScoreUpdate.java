@@ -1,15 +1,20 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import java.util.*;
 
 public class ScoreUpdate extends Thread implements IScoreSubject
 {
     private ArrayList<IScoreObserver> observers = new ArrayList<IScoreObserver>() ;
     private GameWorld world;
-    private GameScreen screen;
+    private boolean isFinished;
+    private IServer server = new Server();
 
-    public ScoreUpdate(GameWorld world, GameScreen screen)
+    public ScoreUpdate(GameWorld world)
     {
         this.world = world;
-        this.screen = screen;
     }
     
     public void attach(IScoreObserver obj) {
@@ -28,14 +33,22 @@ public class ScoreUpdate extends Thread implements IScoreSubject
     }
 
     public void run(){
-        while(!screen.isFinished()){
-            Score opponent = Server.getScore(world.getScore());
+        do{
+            Score opponent = server.getScore(world.getScore());
             notifyObservers(opponent);
             try{
-                Thread.sleep(1000);//1 sec
+                Thread.sleep(500);//1 sec
             }catch(Exception ex){
                 ex.printStackTrace();
             }
-        }
+        }while(!isFinished);
     }
+    
+    public boolean isFinished() {
+		return isFinished;
+	}
+
+	public void setIsFinished(boolean isFinished) {
+		this.isFinished = isFinished;
+	}
 }

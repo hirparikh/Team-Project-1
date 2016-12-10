@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=CardPart
+comment1.params=destX\ destY\ image
+comment1.target=CardPart(int,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=int\ getDestX()
+comment4.params=
+comment4.target=int\ getDestY()
+numComments=5

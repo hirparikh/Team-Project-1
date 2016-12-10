@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=GameWorld
+comment1.params=
+comment1.target=GameWorld()
+comment2.params=
+comment2.target=IScreen\ getScreen()
+comment3.params=screen
+comment3.target=void\ setScreen(IScreen)
+comment4.params=
+comment4.target=Score\ getScore()
+comment5.params=score
+comment5.target=void\ setScore(Score)
+numComments=6

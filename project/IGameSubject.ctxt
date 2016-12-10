@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=IGameSubject
+comment1.params=obj
+comment1.target=void\ attach(IGameObserver)
+comment2.params=obj
+comment2.target=void\ detach(IGameObserver)
+comment3.params=element\ doChain
+comment3.target=void\ notifyObservers(Element,\ boolean)
+numComments=4

@@ -1,3 +1,8 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import greenfoot.*;
 
 public class StartScreen extends Screen {
@@ -9,11 +14,13 @@ public class StartScreen extends Screen {
     @Override
     public void setNextScreen(IScreen screen) {
         StoryScreen storyScreen = (StoryScreen)ScreenFactory.getScreen(ScreenType.STORY, world);
-        storyScreen.setPage(1);
+        storyScreen.setPage(1); 
         world.setScreen(storyScreen);
-        //world.setScreen(ScreenFactory.getScreen(ScreenType.WIN, world));
+        //world.setScreen(ScreenFactory.getScreen(ScreenType.LEADERBOARD, world)); 
+        //GameScreen gameScreen = (GameScreen)ScreenFactory.getScreen(ScreenType.GAME, world);
+        //world.setScreen(gameScreen);
         clearScreen();
-        world.getScreen().displayScreen();
+        world.getScreen().displayScreen(); 
     }
     
     @Override

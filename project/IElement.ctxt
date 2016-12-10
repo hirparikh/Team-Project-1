@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=IElement
+comment0.text=\r\n\ This\ file\ is\ subject\ to\ the\ terms\ and\ conditions\ defined\ in\r\n\ file\ 'LICENSE.txt',\ which\ is\ part\ of\ this\ source\ code\ package.\r\n
+comment1.params=
+comment1.target=State\ getState()
+comment2.params=obj
+comment2.target=void\ attach(IGameObserver)
+comment3.params=obj
+comment3.target=void\ detach(IGameObserver)
+numComments=4

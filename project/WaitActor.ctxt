@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=WaitActor
+comment1.params=
+comment1.target=void\ run()
+comment2.params=world\ img
+comment2.target=WaitActor(GameWorld,\ java.lang.String)
+comment3.params=
+comment3.target=void\ act()
+numComments=4

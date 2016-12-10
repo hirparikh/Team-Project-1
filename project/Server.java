@@ -1,13 +1,18 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import java.util.*;
 import org.restlet.representation.*;
 import org.restlet.ext.jackson.*;
 import org.restlet.resource.*;
 
-public class Server {
+public class Server implements IServer{
 
     private static String serverAddress = "http://35.161.244.30/";
 
-    public static Score getScore(Score score) {
+    public Score getScore(Score score) {
         try {
             ClientResource clientresource = new ClientResource(
                     serverAddress + "score?roomId=" + score.getRoomId() + "&isFirst=" + score.isFirst());
@@ -21,7 +26,7 @@ public class Server {
         return null;
     }
 
-    public static void setScore(Score score) {
+    public void setScore(Score score) {
         try {
             ClientResource clientresource = new ClientResource(serverAddress + "score");
             Representation result = clientresource.post(new JacksonRepresentation<Score>(score));
@@ -30,7 +35,7 @@ public class Server {
         }
     } 
 
-    public static Score reserveRoom(Score score) {
+    public Score reserveRoom(Score score) {
         try {
             ClientResource clientresource = new ClientResource(serverAddress + "room");
             Representation result = clientresource.post(new JacksonRepresentation<Score>(score));
@@ -43,7 +48,7 @@ public class Server {
         return null;
     }
 
-    public static Score opponentArrived(int roomId) {
+    public Score opponentArrived(int roomId) {
         try {
             ClientResource clientresource = new ClientResource(serverAddress + "room?roomId=" + roomId);
             Representation result = clientresource.get();
@@ -56,7 +61,7 @@ public class Server {
         return null;
     }
 
-    public static List<Score> getLeaderBoard() {
+    public List<Score> getLeaderBoard() {
         try {
             ClientResource clientresource = new ClientResource(serverAddress + "leaderboard?limit=5");
             Representation result = clientresource.get();

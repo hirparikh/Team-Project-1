@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Screen
+comment0.text=\r\n\ This\ file\ is\ subject\ to\ the\ terms\ and\ conditions\ defined\ in\r\n\ file\ 'LICENSE.txt',\ which\ is\ part\ of\ this\ source\ code\ package.\r\n
+comment1.params=world
+comment1.target=Screen(GameWorld)
+numComments=2

@@ -1,17 +1,14 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class PlayButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class PlayButton extends UserInput
 {
-    private GameWorld world;
-    
     public PlayButton(GameWorld world){
-        this.world = world;
+        super(world);
     }
     
     public void act() 

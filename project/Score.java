@@ -1,11 +1,10 @@
+/*
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ */
+
 import java.util.Comparator;
 
-/**
- * Write a description of class Score here.
- * 
- * @author (your name)
- * @version (a version number or a date)
- */
 public class Score {
 	private int id;
 	private String name;
@@ -81,7 +80,7 @@ public class Score {
 	}
 
 	public String toString() {
-		return name + ":score + " + score + ":percentage + " + percentage + ":time + " + time; 
+		return name + ":score + " + score + ":percentage + " + percentage + ":time + " + time + ":didFinish + " + didFinish; 
 	}
 
 	public static Comparator<Score> timeComparator = new Comparator<Score>() {
